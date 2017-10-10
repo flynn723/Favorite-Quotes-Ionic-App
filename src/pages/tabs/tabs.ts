@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
 
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
-import { HomePage } from '../home/home';
+import { FavoritesPage } from '../favorites/favorites';
+import { LibraryPage } from '../library/library';
 
-@Component({
-  templateUrl: 'tabs.html'
+@Component ({
+	selector: 'page-tabs',
+	template: `
+		<ion-tabs selectedIndex="1">
+			<ion-tab [root]="favoritesPage" tabTitle="Favorites" tabIcon="star"></ion-tab>
+			<ion-tab [root]="libraryPage" tabTitle="Library" tabIcon="book"></ion-tab>
+		</ion-tabs>
+	`
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
+	favoritesPage = FavoritesPage;
+	libraryPage = LibraryPage;
 
-  constructor() {
-
-  }
 }
